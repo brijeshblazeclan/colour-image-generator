@@ -1,0 +1,33 @@
+-----------------------------------
+    First Way
+-----------------------------------    
+while (colorList.length < 32768) {
+ colorList.push(`rgb(${rand(0, 255)}, ${rand(0, 255)}, ${rand(0, 255)})`);
+}
+
+// random number generator
+function rand(frm, to) {
+    return ~~(Math.random() * (to - frm)) + frm;
+}
+
+time => 42.40380859375 ms
+-----------------------------------
+    Second Way
+-----------------------------------
+const colorSet = new Set();
+while (colorSet.size < 32768) {
+    colorSet.add(getRndColor());
+}
+
+time => 56.27392578125 ms
+
+-----------------------------------
+    Third Way
+-----------------------------------
+for (var red = 0, r = 0; red < v; red++, r += value) {
+    for (var green = 0, g = 0; green < v; green++, g += value) {
+        for (var blue = 0, b = 0; blue < v; blue++, b += value) {
+            colorList.push(`rgb(${r},${g},${b})`);
+        }
+    }
+} // 32.84912109375 ms

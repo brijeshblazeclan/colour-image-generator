@@ -1,0 +1,11 @@
+For this application to work as expected we need distinct colour generator function which generate 
+32768 distinct colours.
+
+=> Business Logic
+    - For generating distinct colours I have created seprate function which uses bitwise operator to
+      reduce time and space complexity and it will store generated colours in array.
+
+    - For creating image I have used canvas and used useRef hook to display image on canvas.
+
+=> For run test cases run command
+    - npm run test
