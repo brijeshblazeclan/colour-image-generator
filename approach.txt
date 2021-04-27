@@ -2,8 +2,20 @@ For this application to work as expected we need distinct colour generator funct
 32768 distinct colours.
 
 => Business Logic
-    - For generating distinct colours I have created seprate function which uses bitwise operator to
-      reduce time and space complexity and it will store generated colours in array.
+    - For generating distinct colours I have created seprate function which store generated 
+      colours in array.
+
+    - First loop will iterate for 32 times and it will generate color for red.
+    - Second nested loop will iterate for 32 times and it will generate color for green.
+    - third nested loop will iterate for 32 times and it will generate color 
+      for blue.
+
+      So, loop will generate result like below
+      rgb("0,0,0"), rgb("0,0,8")
+      rgb("0,8,0"), rgb("0,8,8")
+      rgb("8,0,0"), rgb("8,0,8")
+
+    - In this approach its not possible that generate duplicate values as it is iterate in single direction loop.
 
     - For creating image I have used canvas and used useRef hook to display image on canvas.
 

@@ -19,7 +19,7 @@ function App() {
         for (let x = 0; x < canvas.width; x++) {
           // draw pixel horizontally
           canvasContext.fillStyle = colorList[index++]; // Random color setting
-          canvasContext.fillRect(x * 1, y * 1, 1, 1); // Drawing a pixel
+          canvasContext.fillRect(x, y, 1, 1); // Drawing a pixel
         }
       }
     }
