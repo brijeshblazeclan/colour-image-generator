@@ -4,18 +4,20 @@ import helpers from './utils/helpers';
 import './App.css';
 
 function App() {
-  const canvasRef = useRef();
-  const [colorCount, setColorCount] = useState(0);
+  const canvasRef = useRef(); // Ref for draw image on canvas
+  const [colorCount, setColorCount] = useState(0); // Set unique colours count
 
   const handleColourGenerate = async () => {
-    const colorList = helpers.getColors();
+    const colorList = helpers.getColors(); // Get colourfs and set in array
     setColorCount(colorList.length);
-    let canvas = canvasRef.current, // getting canvas element
-      canvasContext = canvas ? canvas.getContext('2d') : null, // getting context
+    let canvas = canvasRef.current, // getting canvas element using ref
+      canvasContext = canvas ? canvas.getContext('2d') : null, // getting canvas context
       index = 0;
     if (canvasContext) {
-      for (let y = 0; y < 128; y++) {
-        for (let x = 0; x < 256; x++) {
+      for (let y = 0; y < canvas.height; y++) {
+        // draw pixel vertically
+        for (let x = 0; x < canvas.width; x++) {
+          // draw pixel horizontally
           canvasContext.fillStyle = colorList[index++]; // Random color setting
           canvasContext.fillRect(x * 1, y * 1, 1, 1); // Drawing a pixel
         }
@@ -24,7 +26,7 @@ function App() {
   };
 
   useEffect(() => {
-    handleColourGenerate();
+    handleColourGenerate(); // Function call after component load
   });
 
   return (
